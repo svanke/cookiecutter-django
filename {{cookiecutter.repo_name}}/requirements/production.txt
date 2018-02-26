@@ -1,0 +1,10 @@
+# Production running
+gunicorn
+gevent
+
+# Header for API
+django-cors-headers
+
+# AWS S3
+django-s3-folder-storage
+Collectfast

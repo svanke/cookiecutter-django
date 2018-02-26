@@ -1,0 +1,10 @@
+# Local development dependencies go here
+-r base.txt
+
+django-extensions
+factory-boy
+
+django-debug-toolbar
+
+# improved REPL
+ipdb

@@ -1,0 +1,16 @@
+# Test dependencies go here.
+-r base.txt
+
+# Python-PostgreSQL Database Adapter
+# If using Win for dev, this assumes Unix in test/prod
+psycopg2
+
+coverage
+flake8==3.5.0
+django-test-plus
+factory-boy
+django-coverage-plugin
+
+# pytest
+pytest-django
+pytest-sugar
