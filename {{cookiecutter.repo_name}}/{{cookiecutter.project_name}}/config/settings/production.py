@@ -12,6 +12,7 @@ SECRET_KEY = 'CHANGE_ME!!'
 ALLOWED_HOSTS = ['*']
 
 # Production environment apps
+# TODO: Set required apps
 INSTALLED_APPS += [
     's3_folder_storage',
     'collectfast'
@@ -30,9 +31,11 @@ AWS_ACCESS_KEY_ID = ''
 AWS_SECRET_ACCESS_KEY = ''
 AWS_STORAGE_BUCKET_NAME = ''
 
+# TODO: Set static and media
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 
 # HTTPS Configuration
+# TODO: HTTPS Configuration
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True

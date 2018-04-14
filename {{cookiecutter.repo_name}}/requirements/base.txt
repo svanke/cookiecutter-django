@@ -1,17 +1,36 @@
 # Core
-Django
-django-environ
+pytz # already comes with package?
+django
+django-configurations
+gunicorn
+#newrelic
 
-# Image
-Pillow
-
-# Django REST framework and JSON Web Token Authentication
-djangorestframework
-djangorestframework-jwt
-
-# Debugging only on Local environment
-django-debug-toolbar
-django-extensions
-
-# postgres adapter
+# For the persistence stores
 psycopg2
+dj-database-url
+
+# Model Tools
+django-model-utils
+django_unique_upload
+
+# Rest apis
+djangorestframework
+Markdown
+django-filter
+
+# Developer Tools
+ipdb
+ipython
+mkdocs
+flake8
+
+# Testing
+mock
+factory-boy
+django-nose
+nose-progressive==1.5.1
+coverage==4.5.1
+
+# Static and Media Storage
+django-storages==1.6.5
+boto3==1.5.36

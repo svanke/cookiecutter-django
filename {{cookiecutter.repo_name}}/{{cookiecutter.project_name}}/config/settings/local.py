@@ -2,10 +2,10 @@ from .base import *
 
 # Secret key doesn't matter in local development
 # SECRET_KEY = 'some-keys'
-SECRET_KEY = env('DJANGO_SECRET_KEY', default='CHANGEME!!!')
+SECRET_KEY = env('SECRET_KEY')
 
 # Debug mode
-DEBUG = True
+DEBUG = env('DEBUG')
 
 # Allowed from all host
 ALLOWED_HOSTS = ['*']
@@ -23,7 +23,7 @@ MIDDLEWARE += [
 
 # Database configuration
 DATABASES = {
-    'default': env.db("DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/{{cookiecutter.database_name}}")
+    'default': env.db("DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/{{cookiecutter.project_name}}")
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 

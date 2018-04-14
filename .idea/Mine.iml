@@ -8,7 +8,7 @@
   <component name="TemplatesService">
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/{{cookiecutter.project_slug}}/templates" />
+        <option value="$MODULE_DIR$/django-sample/{{cookiecutter.repo_name}}/{{cookiecutter.project_name}}/apps/authentications/templates" />
       </list>
     </option>
   </component>

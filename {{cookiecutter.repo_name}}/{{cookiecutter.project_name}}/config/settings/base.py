@@ -8,12 +8,12 @@ import os
 import environ
 
 # Building paths
-ROOT_DIR = environ.Path(__file__) - 4
-BASE_DIR = ROOT_DIR.path('{{cookiecutter.project_name}}')
+ROOT_DIR = environ.Path(__file__) - 2
+TEMP_DIR = ROOT_DIR.path('templates')
 APPS_DIR = ROOT_DIR.path('apps')
 
-env = environ.Env()
-
+env = environ.Env(DEBUG=(bool, False),)
+environ.Env.read_env() # reading .env file
 
 # Application definition
 DJANGO_APPS = [
@@ -26,7 +26,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'rest_framework'
+    'rest_framework',
 ]
 
 LOCAL_APPS = [
@@ -47,14 +47,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '{{cookiecutter.project_name}}.config.urls'
+ROOT_URLCONF = 'config.urls'
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR.path('templates')
+            TEMP_DIR
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = '{{cookiecutter.project_name}}.config.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
