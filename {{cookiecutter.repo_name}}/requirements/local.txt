@@ -2,9 +2,11 @@
 -r base.txt
 
 django-extensions
+
+# Testing
 factory-boy
 
-django-debug-toolbar
+# Rest apis
+djangorestframework
+Markdown
 
-# improved REPL
-ipdb

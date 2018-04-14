@@ -1,36 +1,24 @@
 # Core
-pytz # already comes with package?
-django
-django-configurations
+Django==2.0.4
+pytz==2018.4
+django-configurations==2.0
+django-environ==0.4.4
+six==1.11.0
 gunicorn
-#newrelic
+
 
 # For the persistence stores
-psycopg2
-dj-database-url
+psycopg2==2.7.4
+psycopg2-binary==2.7.4
+dj-database-url==0.5.0
+sqlparse==0.2.4
 
-# Model Tools
-django-model-utils
-django_unique_upload
-
-# Rest apis
-djangorestframework
-Markdown
-django-filter
 
 # Developer Tools
 ipdb
 ipython
-mkdocs
 flake8
-
-# Testing
-mock
-factory-boy
-django-nose
-nose-progressive==1.5.1
-coverage==4.5.1
+django-debug-toolbar
 
 # Static and Media Storage
-django-storages==1.6.5
-boto3==1.5.36
+django-storages
