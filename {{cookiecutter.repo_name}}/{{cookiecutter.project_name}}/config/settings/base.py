@@ -8,9 +8,13 @@ import os
 import environ
 
 # Building paths
-ROOT_DIR = environ.Path(__file__) - 2
-TEMP_DIR = ROOT_DIR.path('templates')
+ROOT_DIR = environ.Path(__file__) - 4
+TEMP_DIR = ROOT_DIR.path('/templates')
+BASE_DIR = ROOT_DIR.path('{{cookiecutter.project_name}}')
 APPS_DIR = ROOT_DIR.path('apps')
+
+STATIC_ROOT = str(ROOT_DIR('static'))
+STATIC_URL = '/static/'
 
 env = environ.Env(DEBUG=(bool, False),)
 environ.Env.read_env() # reading .env file
@@ -27,10 +31,14 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'bootstrap4',
+    'crispy_forms',
 ]
 
 LOCAL_APPS = [
     # Add your app here
+    # 'apps.{app_name}.apps.{app_name_Class}Config'
+    # 'apps.accounts.apps.AccountsConfig',
     
 ]
 
@@ -54,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            TEMP_DIR
+            BASE_DIR.path('templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -102,6 +110,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Django Rest Framework settings
 # http://www.django-rest-framework.org/api-guide/settings/
