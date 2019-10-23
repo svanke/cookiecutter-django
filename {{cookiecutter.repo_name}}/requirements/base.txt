@@ -1,17 +1,17 @@
 # Core
-Django==2.0.4
-pytz==2018.4
-django-configurations==2.0
-django-environ==0.4.4
-six==1.11.0
+Django==2.2
+pytz
+django-configurations
+django-environ
+six
 gunicorn
 
 
 # For the persistence stores
-psycopg2==2.7.4
-psycopg2-binary==2.7.4
-dj-database-url==0.5.0
-sqlparse==0.2.4
+psycopg2
+psycopg2-binary
+dj-database-url
+sqlparse
 
 
 # Developer Tools

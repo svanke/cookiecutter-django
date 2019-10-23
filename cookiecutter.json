@@ -1,4 +1,6 @@
 {
 	"repo_name": "Repo Name",
-	"project_name": "Project Name"
+	"project_name": "Project Name",
+	"project_domain": "myapp.com",
+	"project_db_password":  "Project Name DB Password"
 }
