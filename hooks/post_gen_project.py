@@ -85,30 +85,13 @@ def copy_local_configuration():
     It is copied from ``.template`` files to the actual files.
     """
     secret_template = os.path.join(
-        PROJECT_DIRECTORY, 'config', '.env.template',
+        PROJECT_DIRECTORY, 'config', 'settings', '.env.template',
     )
     secret_config = os.path.join(
-        PROJECT_DIRECTORY, 'config', '.env',
+        PROJECT_DIRECTORY, 'config', 'settings', '.env',
     )
     shutil.copyfile(secret_template, secret_config)
     _create_secret_key(secret_config)
-
-    # Local config:
-    local_template = os.path.join(
-        PROJECT_DIRECTORY,
-        'server',
-        'settings',
-        'environments',
-        'local.py.template',
-    )
-    local_config = os.path.join(
-        PROJECT_DIRECTORY,
-        'server',
-        'settings',
-        'environments',
-        'local.py',
-    )
-    shutil.copyfile(local_template, local_config)
 
 
 copy_local_configuration()
