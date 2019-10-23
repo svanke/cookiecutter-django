@@ -25,8 +25,11 @@ import string
 CHANGEME = '__CHANGEME__'
 
 # Get the root project directory
-PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 PROJECT_NAME = '{{ cookiecutter.project_name }}'
+REPO_DIRECTORY = os.path.realpath(os.path.curdir)
+PROJECT_DIRECTORY = os.path.join(REPO_DIRECTORY, PROJECT_NAME)
+
+print(PROJECT_DIRECTORY)
 
 
 def _get_random_string(length=50):
