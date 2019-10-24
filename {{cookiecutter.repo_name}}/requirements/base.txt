@@ -13,6 +13,10 @@ psycopg2-binary
 dj-database-url
 sqlparse
 
+# Front End libraries
+django-crispy-forms
+django-bootstrap4
+
 
 # Developer Tools
 ipdb
