@@ -1,0 +1,17 @@
+Django Cookiecutter template for the new project
+
+1. CD to new project folder location.
+2. In your terminal type command: cookiecutter gh:svanke/cookiecutter-django
+3. Fill in cookiecutter's answers.
+4. Using terminal create project's postgresql database. Name should be the same as {project_name}
+    Type command in terminal: createdb -U {username} -W {project_name}
+    Password same as used in cookiecutter's template.
+5. CD to created project template. Create virtual environment with Python3
+    Type command in terminal: python3 -m venv --copies .env
+    Activate virtual env(command in terminal): source .env/bin/activate
+6. Install django libraries(from requirements/local.txt)
+    Type command in terminal: pip install -r requirements/local.txt
+7. Drag & Drop project template folder in PyCharm.
+    Select correct virtual env as python interpreter, select django settings.
+8. Run manage.py command in PyCharm
+9. You good to go! :)
