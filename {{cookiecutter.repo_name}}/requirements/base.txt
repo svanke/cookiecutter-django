@@ -1,5 +1,5 @@
 # Core
-Django==2.2.4
+Django==2.2.8
 pytz
 django-configurations
 django-environ
