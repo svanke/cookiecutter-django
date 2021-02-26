@@ -1,14 +1,25 @@
-version: '3'
+version: '3.7'
 
 services:
-  db:
-    image: postgres
   web:
     build: .
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./src:/code/
     ports:
       - "8000:8000"
+    env_file:
+      - ./src/config/settings/.env.dev
     depends_on:
       - db
+  db:
+    image: postgres:12.5-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER={{ cookiecutter.project_db_user }}
+      - POSTGRES_PASSWORD={{ cookiecutter.project_db_password }}
+      - POSTGRES_DB={{ cookiecutter.project_name }}
+
+volumes:
+  postgres_data:

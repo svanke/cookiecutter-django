@@ -10,7 +10,11 @@ It does the following:
 A portion of this code was adopted from Django's standard crypto functions and
 utilities, specifically:
 https://github.com/django/django/blob/master/django/utils/crypto.py
+# Copy entrypoint.sh
+COPY ./edmreportxyz/entrypoint.sh /code
 
+# Adds our application code to the image
+COPY ./edmreportxyz /code
 And from pydanny's cookiecutter-django:
 https://github.com/pydanny/cookiecutter-django
 
@@ -25,7 +29,7 @@ import string
 CHANGEME = '__CHANGEME__'
 
 # Get the root project directory
-PROJECT_NAME = '{{ cookiecutter.project_name }}'
+PROJECT_NAME = 'src'
 REPO_DIRECTORY = os.path.realpath(os.path.curdir)
 PROJECT_DIRECTORY = os.path.join(REPO_DIRECTORY, PROJECT_NAME)
 
@@ -83,7 +87,11 @@ def print_futher_instuctions():
 
 def copy_local_configuration():
     """
-    Handler to copy local configuration.
+    Handler to copy local configurat# Copy entrypoint.sh
+COPY ./edmreportxyz/entrypoint.sh /code
+
+# Adds our application code to the image
+COPY ./edmreportxyz /codeion.
 
     It is copied from ``.template`` files to the actual files.
     """
@@ -91,9 +99,9 @@ def copy_local_configuration():
         PROJECT_DIRECTORY, 'config', 'settings', '.env.template',
     )
     secret_config = os.path.join(
-        PROJECT_DIRECTORY, 'config', 'settings', '.env',
+        PROJECT_DIRECTORY, 'config', 'settings', '.env.dev',
     )
-    shutil.copyfile(secret_template, secret_config)
+    shutil.move(secret_template, secret_config)
     _create_secret_key(secret_config)
 
 

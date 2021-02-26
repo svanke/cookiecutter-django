@@ -3,9 +3,6 @@
 
 django-extensions
 
-# Testing
-factory-boy
-
 # Rest apis
 djangorestframework
 Markdown

@@ -23,7 +23,14 @@ MIDDLEWARE += [
 
 # Database configuration
 DATABASES = {
-    'default': env.db("DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/{{cookiecutter.project_name}}")
+    'default': {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("POSTGRES_DB", "django.db.backends.sqlite3"),
+        "USER": os.environ.get("POSTGRES_USER", "user"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "password"),
+        "HOST": os.environ.get("DJANGO_DATABASE_HOST", "localhost"),
+        "PORT": os.environ.get("DJANGO_DATABASE_PORT", "5432"),
+    }
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
