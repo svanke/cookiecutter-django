@@ -1,11 +1,14 @@
+import os
+
 from .base import *
+from .base import env
 
 # Secret key doesn't matter in local development
 # SECRET_KEY = 'some-keys'
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY', default="!!!SET DJANGO SECRET KEY",)
 
 # Debug mode
-DEBUG = env('DEBUG')
+DEBUG = env.bool('DEBUG', False)
 
 # Allowed from all host
 ALLOWED_HOSTS = ['*']
@@ -38,11 +41,11 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Static files
-STATIC_ROOT = str(ROOT_DIR('static_files'))
+STATIC_ROOT = str(ROOT_DIR / 'static_files')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    str(ROOT_DIR.path('static')),
+    str(ROOT_DIR / 'static'),
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -50,5 +53,5 @@ STATICFILES_FINDERS = (
 )
 
 # Media files
-MEDIA_ROOT = str(ROOT_DIR('media'))
+MEDIA_ROOT = str(ROOT_DIR / 'media')
 MEDIA_URL = '/media/'

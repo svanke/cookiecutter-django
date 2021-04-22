@@ -8,7 +8,7 @@ gunicorn
 
 
 # For the persistence stores
-psycopg2
+# psycopg2
 psycopg2-binary
 dj-database-url
 sqlparse
