@@ -15,13 +15,13 @@ ALLOWED_HOSTS = ['*']
 
 # App specifically for development
 INSTALLED_APPS += [
-    'debug_toolbar',
+    # 'debug_toolbar',
     'django_extensions',
 ]
 
 # Middleware for development
 MIDDLEWARE += [
-    'debug_toolbar.middleware.DebugToolbarMiddleware'
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
 # Database configuration
