@@ -94,7 +94,7 @@ def copy_local_configuration():
     secret_template = os.path.join(
         PROJECT_DIRECTORY, 'config', 'settings', '.env.template',
     )
-    secret_config = PROJECT_DIRECTORY
+    secret_config = os.path.join(PROJECT_DIRECTORY, '.env.dev')
         # PROJECT_DIRECTORY, 'config', 'settings', '.env.dev',
     shutil.move(secret_template, secret_config)
     _create_secret_key(secret_config)
