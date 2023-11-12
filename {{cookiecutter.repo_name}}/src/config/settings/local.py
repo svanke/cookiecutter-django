@@ -55,3 +55,6 @@ STATICFILES_FINDERS = (
 # Media files
 MEDIA_ROOT = str(ROOT_DIR / 'media')
 MEDIA_URL = '/media/'
+
+# Login URL
+LOGIN_URL = '/login'

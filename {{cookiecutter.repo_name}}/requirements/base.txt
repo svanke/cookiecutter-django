@@ -5,6 +5,9 @@ django-configurations
 django-environ
 six
 gunicorn
+django-types
+django-widget-tweaks
+Pillow
 
 
 # For the persistence stores
@@ -15,14 +18,14 @@ sqlparse
 
 # Front End libraries
 django-crispy-forms
-django-bootstrap4
+crispy-bootstrap5
 
 
 # Developer Tools
 ipdb
 ipython
 flake8
-django-debug-toolbar
+pyright
 
 # Static and Media Storage
 django-storages

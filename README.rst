@@ -6,7 +6,7 @@ Django Cookiecutter template for the new project
             from cookiecutter.main import cookiecutter
             cookiecutter('https://github.com/svanke/cookiecutter-django.git')
             
-3. Fill in cookiecutter's answers.
+3. Fill in cookiecutter's answers(username and password can't be the same).
 4. Using terminal create project's postgresql database. Name should be the same as {project_name}
     Type command in terminal: createdb -U {username} -W {project_name}
     Password same as used in cookiecutter's template.
@@ -15,7 +15,4 @@ Django Cookiecutter template for the new project
     Activate virtual env(command in terminal): source .env/bin/activate
 6. Install django libraries(from requirements/local.txt)
     Type command in terminal: pip install -r requirements/local.txt
-7. Drag & Drop project template folder in PyCharm.
-    Select correct virtual env as python interpreter, select django settings.
-8. Run manage.py command in PyCharm
-9. You good to go! :)
+7. Open nvim and start creating your apps!

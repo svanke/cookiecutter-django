@@ -34,14 +34,14 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'bootstrap4',
     'crispy_forms',
+    "crispy_bootstrap5",
+    "widget_tweaks",
 ]
 
 LOCAL_APPS = [
     # Add your app here
-    # 'apps.{app_name}.apps.{app_name_Class}Config'
-    # 'apps.accounts.apps.AccountsConfig',
+    # 'apps.{app_name}',
     
 ]
 
@@ -65,7 +65,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            str(BASE_DIR / 'templates')
+            str(ROOT_DIR / 'templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Australia/Sydney'
+TIME_ZONE = 'Australia/Brisbane'
 
 USE_I18N = True
 
@@ -113,7 +113,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# Crispy-bootstrap5 app settings:
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Django Rest Framework settings
 # http://www.django-rest-framework.org/api-guide/settings/
@@ -127,3 +129,5 @@ REST_FRAMEWORK = {
     ),
     'COERCE_DECIMAL_TO_STRING': False
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
