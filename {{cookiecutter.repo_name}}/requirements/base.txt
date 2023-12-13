@@ -8,6 +8,8 @@ gunicorn
 django-types
 django-widget-tweaks
 Pillow
+pyright
+
 
 
 # For the persistence stores
@@ -29,3 +31,4 @@ pyright
 
 # Static and Media Storage
 django-storages
+django-compressor
