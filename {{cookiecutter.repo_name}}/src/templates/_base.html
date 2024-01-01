@@ -1,7 +1,8 @@
 <!-- templates/_base.html -->
 
-{{ "{%" }} load compress {{ "%}" }}
+<!-- {{ "{%" }} load compress {{ "%}" }} -->
 {{ "{%" }} load static {{ "%}" }}
+{{ "{%" }} load static tailwind_tags {{ "%}" }}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,19 +13,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django + Tailwind CSS + Flowbite</title>
 
-     {{ "{%" }} compress css {{ "%}" }}
-    <link rel="stylesheet" href="{{ "{%" }} static 'src/output.css' {{ "%}" }}">
-     {{ "{%" }} endcompress {{ "%}" }}
+    <!-- {{ "{%" }} compress css {{ "%}" }} -->
+    <!-- <link rel="stylesheet" href="{{ "{%" }} static 'src/output.css' {{ "%}" }}"> -->
+    <!-- {{ "{%" }} endcompress {{ "%}" }} -->
+
+    {{ "{%" }} tailwind_css {{ "%}" }}
 
 </head>
 
-<body class="bg-green-50">
-    <div class="container mx-auto mt-4">
-        {% block content %}
-        {% endblock content %}
-    </div>
+<body>
+    {{ "{%" }} block content {{ "%}" }}
+    {{ "{%" }} endblock content {{ "%}" }}
     <!-- Flowbite CDN with each new version I guess I should update it...!!! -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    {{ "{%" }} block script {{ "%}" }}
+    {{ "{%" }} endblock script {{ "%}" }}
 </body>
 
 </html>

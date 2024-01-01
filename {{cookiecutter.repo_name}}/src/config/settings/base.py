@@ -37,7 +37,9 @@ THIRD_PARTY_APPS = [
     'crispy_forms',
     "crispy_bootstrap5",
     "widget_tweaks",
-    "compressor",
+    "tailwind",
+    "theme", # Default Tailwind CSS app
+    "django_browser_reload",
 ]
 
 LOCAL_APPS = [
@@ -57,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Tailwind CSS Browser Reload 
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -117,6 +121,15 @@ USE_TZ = True
 # Crispy-bootstrap5 app settings:
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# Tailwind CSS app Settings:
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = "/usr/bin/npm" # This may be needed to change, depends on your path(check in terminal with where/which npm)
 
 # Django Rest Framework settings
 # http://www.django-rest-framework.org/api-guide/settings/

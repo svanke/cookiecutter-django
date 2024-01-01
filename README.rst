@@ -15,10 +15,13 @@ Django Cookiecutter template for the new project
     Activate virtual env(command in terminal): source .env/bin/activate
 6. Install django libraries(from requirements/local.txt)
     Type command in terminal: pip install -r requirements/local.txt
-7. Install npm libraries(tailwindcss, flowbite, daisyUI and etc.) [Change and use yarn??? if thats even possible???]:
-   npm install -D tailwindcss
+7. Create a Tailwind CSS compatible Django app, I like to call it theme(default):
+   python manage.py tailwind init
+8. Install Tailwind CSS dependencies, by running the following command (Make sure Node.js installed and path is set correctly):
+   python manage.py tailwind install
+9. Install npm libraries(flowbite, daisyUI and etc.) [Change and use yarn??? if thats even possible???]:
    npm install flowbite
    npm i -D daisyui@latest
-8. To start running tailwindcss server:
-   npx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch
-9. Open nvim and start creating your apps!
+10. Finally, you should be able to use Tailwind CSS classes in HTML. Start the development server by running the following command in your terminal:
+   python manage.py tailwind startpython manage.py tailwind start
+11. Open nvim and start creating your apps!

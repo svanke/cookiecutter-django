@@ -21,6 +21,8 @@ sqlparse
 # Front End libraries
 django-crispy-forms
 crispy-bootstrap5
+django-tailwind
+django_browser_reload
 
 
 # Developer Tools
@@ -31,4 +33,3 @@ pyright
 
 # Static and Media Storage
 django-storages
-django-compressor
