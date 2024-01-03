@@ -1,7 +1,7 @@
 Django Cookiecutter template for the new project
 
 1. CD to new project folder location.
-   
+
 2. In your terminal type command:
 
   cookiecutter gh:svanke/cookiecutter-django
@@ -47,6 +47,7 @@ Django Cookiecutter template for the new project
 9. Install npm libraries(flowbite, daisyUI and etc.) [Change and use yarn??? if thats even possible???]:
    
    npm install flowbite
+   
    npm i -D daisyui@latest
 
    Copy tailwind.config.js settings to theme/static_src/tailwind.config.js
