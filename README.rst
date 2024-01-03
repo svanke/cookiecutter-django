@@ -6,11 +6,11 @@ Django Cookiecutter template for the new project
 
   cookiecutter gh:svanke/cookiecutter-django
   
-   Or run in python:
-   
-      from cookiecutter.main import cookiecutter
-      cookiecutter('https://github.com/svanke/cookiecutter-django.git')
-            
+  Or run in python:
+
+  from cookiecutter.main import cookiecutter
+  cookiecutter('https://github.com/svanke/cookiecutter-django.git'
+  
 3. Fill in cookiecutter's answers(username and password can't be the same).
    
 4. Using terminal create project's postgresql database. Name should be the same as {project_name}
@@ -52,8 +52,9 @@ Django Cookiecutter template for the new project
    Copy tailwind.config.js settings to theme/static_src/tailwind.config.js
    Delete tailwind.config.js in root after
    
-10. Finally, you should be able to use Tailwind CSS classes in HTML. Start the development server by running the following command in your terminal:
+10. Finally, you should be able to use Tailwind CSS classes in HTML. 
+    Start the development server by running the following command in your terminal:
     
-   python manage.py tailwind start
-   
+  python manage.py tailwind start
+ 
 11. Open nvim and start creating your apps!
