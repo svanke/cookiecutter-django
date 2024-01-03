@@ -35,6 +35,7 @@ Django Cookiecutter template for the new project
     pip install -r requirements/local.txt
     
 7. Create a Tailwind CSS compatible Django app, I like to call it theme(default):
+   cd to the projects root folder( cd src )
    
    python manage.py tailwind init
 
