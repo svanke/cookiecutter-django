@@ -38,7 +38,8 @@ THIRD_PARTY_APPS = [
     "crispy_bootstrap5",
     "widget_tweaks",
     "tailwind",
-    "theme", # Default Tailwind CSS app
+    # Default Tailwind CSS app uncoment after running "python manage.py tailwind init" creating theme django app
+    # "theme", 
     "django_browser_reload",
 ]
 
