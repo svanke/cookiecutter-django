@@ -2,11 +2,14 @@ Django Cookiecutter template for the new project
 
 1. CD to new project folder location.
    
-2. In your terminal type command: cookiecutter gh:svanke/cookiecutter-django
+2. In your terminal type command:
+
+  cookiecutter gh:svanke/cookiecutter-django
+  
    Or run in python:
    
-            from cookiecutter.main import cookiecutter
-            cookiecutter('https://github.com/svanke/cookiecutter-django.git')
+      from cookiecutter.main import cookiecutter
+      cookiecutter('https://github.com/svanke/cookiecutter-django.git')
             
 3. Fill in cookiecutter's answers(username and password can't be the same).
    
