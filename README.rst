@@ -1,3 +1,4 @@
+Rewriting new template, will use docker for practicality 
 Django Cookiecutter template for the new project
 
 1. CD to new project folder location.
