@@ -1,5 +1,5 @@
 {
-  "name": "adamus",
+  "name": "{{cookiecutter.project_name}}",
   "dependencies": {
     "flowbite": "^2.3.0"
   },
