@@ -1,5 +1,10 @@
 {
-  "name": "{{cookiecutter.project_name}}",
-  "dependencies": {},
-  "devDependencies": {}
+  "name": "adamus",
+  "dependencies": {
+    "flowbite": "^2.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "daisyui": "^4.10.1"
+  }
 }
