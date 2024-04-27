@@ -39,7 +39,7 @@ THIRD_PARTY_APPS = [
     "widget_tweaks",
     "tailwind",
     # Default Tailwind CSS app uncoment after running "python manage.py tailwind init" creating theme django app
-    # "theme", 
+    "theme", 
     "django_browser_reload",
 ]
 
@@ -130,7 +130,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-NPM_BIN_PATH = "/usr/bin/npm" # This may be needed to change, depends on your path(check in terminal with where/which npm)
+# NPM_BIN_PATH = "/usr/bin/npm" # This may be needed to change, depends on your path(check in terminal with where/which npm)
 
 # Django Rest Framework settings
 # http://www.django-rest-framework.org/api-guide/settings/

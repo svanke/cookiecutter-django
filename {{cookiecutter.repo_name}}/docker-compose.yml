@@ -1,20 +1,32 @@
+x-app: &default-app
+  build:
+    context: "."
+    dockerfile: Dockerfile.django
+  volumes:
+    - .:/app
+  env_file:
+    - ./src/.env.dev
+  depends_on:
+    - db
+    - node
+  restart: "unless-stopped"
+
 services:
   web:
-    build: 
-      context: .
-      dockerfile: Dockerfile.web
+    <<: *default-app 
     container_name: django_web
     image: django_web_image
     command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - ./src/:/code/
     ports:
       - "8000:8000"
-    env_file:
-      - ./src/.env.dev
-    depends_on:
-      - db
-      - node
+  tailwind:
+    <<: *default-app
+    container_name: django_tailwind
+    image: django_tailwind_image
+    command: "python manage.py tailwind start"
+    # Without tty, no stdin, and tailwind watcher aborts
+    # https://github.com/tailwindlabs/tailwindcss/issues/5324
+    tty: true
   db:
     env_file:
       - ./src/.env.dev
@@ -33,7 +45,7 @@ services:
     image: django_node_image
     container_name: django_node
     volumes:
-      - ./src/:/code/
+      - ./src/:/app/
 
 volumes:
   postgres_data:

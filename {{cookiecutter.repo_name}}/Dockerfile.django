@@ -1,0 +1,63 @@
+# Use an official Python runtime as a parent image
+FROM python:3.12-slim-bookworm
+
+# Set working directory to app
+WORKDIR /app
+
+# Update package lists and install necessary dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        gnupg \
+        postgresql-client \
+        libpq-dev \
+        build-essential \
+        libjpeg-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js
+ARG NODE_MAJOR=22
+RUN curl -fsSL https://deb.nodesource.com/setup_$NODE_MAJOR.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user to run the application
+RUN useradd --create-home python \
+    && chown python:python -R /app
+
+# Switch to the non-root user
+USER python
+
+# Copy requirements files
+COPY --chown=python:python requirements /app/requirements
+
+# Install Python dependencies
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r /app/requirements/local.txt
+
+# Set environment variables for Python
+ENV DEBUG="${DEBUG}" \
+    PYTHONUNBUFFERED="true" \
+    PATH="${PATH}:/home/python/.local/bin" \
+    USER="python" \
+    PYTHONDONTWRITEBYTECODE="1" \
+    PYTHONUNBUFFERED="1"
+
+# Copy the Django project files into the container
+COPY --chown=python:python . .
+
+# Set working directory to app
+WORKDIR /app/src/
+
+# Tailwind CSS setup
+RUN SECRET_KEY=nothing python manage.py tailwind install --no-input;
+RUN SECRET_KEY=nothing python manage.py tailwind build --no-input;
+RUN SECRET_KEY=nothing python manage.py collectstatic --no-input;
+
+# Install Flowbite and daisyUI dependencies
+RUN npm install flowbite && \
+    npm install -D daisyui@latest
+
+# Run the Django development server
+CMD ["python", "manage.py", "runserver"]
