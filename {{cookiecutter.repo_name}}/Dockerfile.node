@@ -1,0 +1,26 @@
+# Use an official Python runtime as a parent image
+FROM node:21.7-alpine
+
+# Set the working directory in the container
+WORKDIR /code
+
+# Copy the Django project files into the container
+COPY . /code/
+
+# Copy only the package.json and package-lock.json files
+COPY ./src/package*.json /code/
+
+# Install Node.js dependencies
+RUN cd src && npm install
+
+# Install Tailwind CSS dependencies
+RUN npm install tailwindcss@latest postcss@latest autoprefixer@latest
+
+# Install flowbite libraries
+RUN npm install flowbite
+
+# Install daisyUI libraries
+RUN npm i -D daisyui@latest
+
+# Specify the default command to run when the container starts
+CMD ["tail", "-f", "/dev/null"]

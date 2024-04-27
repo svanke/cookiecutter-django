@@ -24,6 +24,9 @@ RUN apk add --no-cache \
 # Copy the Django project files into the container
 COPY . /code/
 
+# Copy entrypoint.sh
+COPY ./src/entrypoint.sh /code
+
 # Install Python dependencies
 COPY requirements /code/requirements
 RUN pip install --upgrade pip
@@ -40,17 +43,8 @@ RUN NPM_BIN_PATH=$(which npm) \
     && echo "export NPM_BIN_PATH=$NPM_BIN_PATH" >> /etc/profile.d/npm_path.sh \
     && chmod +x /etc/profile.d/npm_path.sh
 
-# Initialize Tailwind CSS <-- uncomment these when creating new project
-RUN cd src && echo -e "\n" | python manage.py tailwind init
-
-# Uncomment 'theme' app in Django settings <-- uncomment these when creating new project
-RUN cd src && sed -i 's/^# \(.*theme.*\)/\1/' config/settings/base.py
-
 # Install Tailwind CSS dependencies
 RUN npm install tailwindcss@latest postcss@latest autoprefixer@latest
-
-# Run `python manage.py tailwind start`
-CMD ["python", "manage.py", "tailwind", "start"]
 
 # [Security] Limit the scope of user who run the docker image
 RUN adduser -D user
