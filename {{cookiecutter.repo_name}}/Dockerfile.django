@@ -47,6 +47,14 @@ ENV DEBUG="${DEBUG}" \
 # Copy the Django project files into the container
 COPY --chown=python:python . .
 
+# Set working directory to the directory containing package.json
+WORKDIR /app/src/theme/static_src
+
+# Install Node.js dependencies
+COPY src/theme/static_src/package.json ./
+# COPY src/theme/static_src/package-lock.json ./
+RUN npm install --only=dev
+
 # Set working directory to app
 WORKDIR /app/src/
 
